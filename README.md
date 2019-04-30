@@ -1,2 +1,2 @@
-# ECEAmazon
-Projet Piscine - ECE Amazon 
+# Projet e-commerce
+Projet 
