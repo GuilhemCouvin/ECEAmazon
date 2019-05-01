@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Registration</title>
-<link href="bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link href="bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" type="text/css" href="login.css" media = "all" />
     <script src="bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -68,6 +68,7 @@ if (isset($_REQUEST['username'])){
 				<form>
 					<div class="container-fluid inner-section2">
 						<h2 class="font_white text-center">INSCRIPTION ACHETEUR</h2><br>
+
 						<div class="row">
 							<div class="col-sm-6 form-group">
 								<label>Nom</label>
@@ -92,7 +93,7 @@ if (isset($_REQUEST['username'])){
 
 						<div class="form-group">
 							<label>Addresse</label>
-							<textarea placeholder="EX: 71 rue du Théatre, 75015 Paris" rows="3" name = "adresse" class="form-control" required></textarea>
+							<textarea placeholder="EX: 37 quai de Grenelle, 75015 Paris" rows="3" name = "adresse" class="form-control" required></textarea>
 						</div>	
 
 						<div class="row">

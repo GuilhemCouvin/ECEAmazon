@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `produit` (
 
 DROP TABLE IF EXISTS `produit_stock`;
 CREATE TABLE IF NOT EXISTS `produit_stock` (
-  `id` int(11) NOT NULL ,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `price` varchar(50) NOT NULL,
   `id_vendeur` varchar(50) NOT NULL,
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `produit_stock` (
 
 DROP TABLE IF EXISTS `produit_vendu`;
 CREATE TABLE IF NOT EXISTS `produit_vendu` (
-  `id` int(11) NOT NULL ,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `price` varchar(50) NOT NULL,
   `id_vendeur` varchar(50) NOT NULL,
@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `produit_vendu` (
 
 DROP TABLE IF EXISTS `panier`;
 CREATE TABLE IF NOT EXISTS `panier` (
-  `id` int(11) NOT NULL ,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `price` varchar(50) NOT NULL,
   `id_vendeur` varchar(50) NOT NULL,
@@ -169,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `panier` (
 
 DROP TABLE IF EXISTS `produit_vente_flash`;
 CREATE TABLE IF NOT EXISTS `produit_vente_flash` (
-  `id` int(11) NOT NULL ,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `price` varchar(50) NOT NULL,
   `id_vendeur` varchar(50) NOT NULL,

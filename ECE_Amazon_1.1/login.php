@@ -12,9 +12,9 @@
     <link rel="icon" href="../../../../favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
+
     <!-- Modification du style  -->
-    <link href="login.css" rel="stylesheet">
+    <link href="login-v2.css" rel="stylesheet">
     
     <!------ Include the above in your HEAD tag ---------->
     <script src="https://use.fontawesome.com/1dec14be15.js"></script>

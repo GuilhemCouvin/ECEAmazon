@@ -76,7 +76,7 @@ if (isset($_REQUEST['email'])){
 
 						<div class="form-group">
 							<label>Addresse</label>
-							<textarea placeholder="EX: 71 rue du Théatre, 75015 Paris" rows="3" name = "adresse" class="form-control" required></textarea>
+							<textarea placeholder="EX: 37 quai de Grenelle, 75015 Paris" rows="3" name = "adresse" class="form-control" required></textarea>
 						</div>	
 
 						<div class="row">

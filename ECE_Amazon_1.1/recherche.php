@@ -18,24 +18,6 @@ include("auth.php");
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <style type="text/css">
-    .btn-lg {
-      font-size: 1em;
-      border-radius: 0.25rem;
-      padding: 15px 48px;
-    }
-    
-    .btn-round {
-      border-width: 1px;
-      border-radius: 30px !important;
-      padding: 11px 23px;
-    }
-    
-    .btn-neutral,.btn-neutral:focus,.btn-neutral:hover {
-      background-color: #f3576a;
-      color: white;
-    }
-  </style>
 
 </head>
 
@@ -46,15 +28,27 @@ include("auth.php");
         $username= $_SESSION['username'];
 
 
-        $query3="SELECT produit.id, name, price, description, username FROM `produit` inner join vendeur where id_vendeur = vendeur.id  ";
+        $query3="SELECT name, price, description, username FROM `produit` inner join vendeur where id_vendeur = vendeur.id  ";
         $result3= mysqli_query($con, $query3);
     ?>
     
     <?php
-    require("db.php");
-        
-    ?>
+    include "db.php";
     
+    $output = '';
+    if(isset($_POST['search'])) {
+    $search = $_POST['search'];
+    $search = preg_replace("#[^0-9a-z]i#","", $search);
+    $query = "SELECT name, price, description, username FROM `produit` inner join vendeur where id_vendeur = vendeur.id and name LIKE '%$search%'";
+    $result = mysqli_query($con, $query) or die ("Could not search");
+    $count = mysqli_num_rows($result);
+
+    
+     
+    }
+    
+    ?>
+
     
  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -71,7 +65,7 @@ include("auth.php");
       </ul>
       <form action="recherche.php" class="form-inline my-2 my-lg-0" method="post">
         <input name="search" type="text" class="form-control mr-sm-2" placeholder="Rechercher..."/>
-        <input class="btn btn-neutral my-2 my-sm-0" type="submit" value="Rechercher"/>
+        <input class="btn btn-secondary my-2 my-sm-0" type="submit" value="Rechercher"/>
       </form>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
@@ -111,35 +105,36 @@ include("auth.php");
         <div class='col-lg-9'>
          <div class='row'> 
           <?php
-        while($row2 = $result3->fetch_assoc())
-        {
+         if ($count != 0)
+         {
+        while ($row = mysqli_fetch_array($result)) {
          echo("
 
          
               
-    
+        
           <div class='col-lg-4 col-md-6 mb-4'>
             <div class='card h-100'>
               <a href=''><img class='card-img-top' src='' alt=''></a>
               <div class='card-body'>
                 <h4 class='card-title'>
-                  <a href='fiche_test.php?id='".$row2['produit.id'].">".$row2['name']."</a>
+                  <a href=''>".$row['name']."</a>
               
                 </h4>
-                <h5>".$row2['price']."".'€'."</h5>
+                <h5>".$row['price']."".'€'."</h5>
                
-                <p class='card-tex'>".$row2['description']."</p>
-                <a href='' class='card-tex'>".$row2['username']."</a>
+                <p class='card-tex'>".$row['description']."</p>
+                <a href='' class='card-tex'>".$row['username']."</a>
               </div>
                
             </div>
           </div>
+          
             
-          "
-        ); 
-
-        }
-        include('fiche_test.php');
+          "); 
+         }}
+             else{echo($output);}
+             
         ?>
         <!-- /.row -->
             </div>

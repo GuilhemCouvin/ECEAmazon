@@ -18,6 +18,23 @@ include("auth.php");
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <style type="text/css">
+    .btn-lg {
+      font-size: 1em;
+      border-radius: 0.25rem;
+      padding: 15px 48px;
+    }
+    
+    .btn-round {
+      border-width: 1px;
+      border-radius: 30px !important;
+      padding: 11px 23px;
+    }
+    
+    .btn-neutral,.btn-neutral:focus,.btn-neutral:hover {
+      background-color: #f3576a;
+      color: white;
+  </style>
 </head>
 
 <body>
@@ -46,7 +63,7 @@ include("auth.php");
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Rechercher...">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
+        <button class="btn btn-neutral my-2 my-sm-0" type="submit">Rechercher</button>
       </form>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
@@ -89,10 +106,6 @@ include("auth.php");
         while($row2 = $result3->fetch_assoc())
         {
          echo("
-
-         
-              
-    
           <div class='col-lg-4 col-md-6 mb-4'>
             <div class='card h-100'>
               <a href=''><img class='card-img-top' src='' alt=''></a>
@@ -112,31 +125,13 @@ include("auth.php");
         }
         ?>
         <!-- /.row -->
-        
-          
-          
-          
             </div>
         </div>
-        
-          
-
-        
-     
-
-      
-
-        
-
       </div>
       <!-- /.col-lg-9 -->
-
     </div>
     <!-- /.row -->
-
-
   <!-- /.container -->
-
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
