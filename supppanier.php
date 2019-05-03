@@ -14,10 +14,7 @@ if(isset($n_post))
     
     $query = "DELETE FROM `panier` WHERE id_produit = '$n_post' and id_acheteur = '$id'";
     $result = mysqli_query($con, $query);
-    echo $query2;
-    echo $query;
     
-    //echo $username;
     
 }
 

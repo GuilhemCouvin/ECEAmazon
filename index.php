@@ -46,7 +46,7 @@ include("auth.php");
         $username= $_SESSION['username'];
 
 
-        $query3="SELECT produit.id, name, price, description, username FROM `produit` inner join vendeur where id_vendeur = vendeur.id  ";
+        $query3="SELECT produit.id, name, price, description, username, photo FROM `produit` inner join vendeur where id_vendeur = vendeur.id  ";
         $result3= mysqli_query($con, $query3);
     ?>
     
@@ -116,12 +116,12 @@ include("auth.php");
          echo("
           <div class='col-lg-4 col-md-6 mb-4'>
             <div class='card h-100'>
-              <a href=''><img class='card-img-top' src='' alt=''></a>
+
+              <a href=''><img class='card-img-top' src='img/.implode($photo)' alt=''>$photo</a>
+
               <div class='card-body'>
                 <h4 class='card-title'>
-
                 <a href='fiche_produit.php?name=".$row2['id']."'>".$row2['name']."</a>
-                
                 </h4>
                 <h5>".$row2['price']."".'€'."</h5>
                 <p class='card-tex'>".$row2['description']."</p>

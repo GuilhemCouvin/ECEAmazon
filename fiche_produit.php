@@ -92,10 +92,10 @@ include("auth.php");
 			    <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
 			  </li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-			  <input class="form-control mr-sm-2" type="text" placeholder="Rechercher...">
-			  <button class="btn btn-neutral my-2 my-sm-0" type="submit">Rechercher</button>
-			</form>
+			<form action="recherche.php" class="form-inline my-2 my-lg-0" method="post">
+        <input name="search" type="text" class="form-control mr-sm-2" placeholder="Rechercher..."/>
+        <input class="btn btn-secondary my-2 my-sm-0" type="submit" value="Rechercher"/>
+      </form>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
 			    	<a class="nav-link" href="panier.php">Panier</a>
@@ -117,8 +117,8 @@ include("auth.php");
 						<h2 align="center"><?php echo($row['name'])?></h2>
 					</div>
 				</div>
-				<div>
-					<img class="d-block img-fluid" align="center" src= "<?php echo "img/".implode($photo);?>" alt="First slide">
+				<div align="center">
+					<img class="d-block img-fluid" width="230" height="230" align="center" src="<?php echo "img/".implode($photo);?>" alt="First slide">
 					<br>
 				</div>
 			</div>
@@ -131,7 +131,11 @@ include("auth.php");
 					<div class="footer text-center">
                     	<?php 
                     		echo("
-                    			<a class='btn btn-neutral btn-round' href='ajout_panier.php?name=".$_GET['name']."'>Ajouter au panier</a>"
+                    			<form action='ajout_panier.php?name=".$_GET['name']."' method='post' autocomplete='off'>
+                    			<br>
+                        		<input name ='demande' type='submit' class='btn btn-neutral btn-round' value='Ajouter au panier'/>  
+                        		</form>
+"
                     		);
                     	?>
                     	<br><br>

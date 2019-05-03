@@ -45,7 +45,6 @@ include("auth.php");
         $rowS=mysqli_fetch_array($resultS);
         $somme = $rowS['total'];
         
-    
     ?>
     
  <!-- Navigation -->
@@ -85,6 +84,7 @@ include("auth.php");
 					<div class="footer text-center">
                     	<?php 
                     		echo("
+                          
                     			<a class='btn btn-neutral btn-round' href='payement.php'>Payer</a>"
                     		);
                     	?>
@@ -98,6 +98,7 @@ include("auth.php");
           <?php
         while($row2 = $result3->fetch_assoc())
         {
+
          echo("
           <div class='col-lg-4 col-md-6 mb-4'>
             <div class='card h-100'>
@@ -110,11 +111,10 @@ include("auth.php");
                
                 <p class='card-tex'>".$row2['description']."</p>
                 <a href='' class='card-tex'>".$row2['username']."</a>
-                <form action='supppanier.php?idprod=".$row2['id_produit']."' method='post' autocomplete='off'>
+                <form action='supppanier.php?idprod='".$row2['id_produit']."' method='post' autocomplete='off'>
                         <input name ='demande' type='submit' class='btn btn-sm btn-danger' value='Supprimer'/>  
-                        </form>
+                </form>
               </div>
-               
             </div>
           </div> 
           "); 

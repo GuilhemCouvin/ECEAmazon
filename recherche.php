@@ -28,7 +28,7 @@ include("auth.php");
         $username= $_SESSION['username'];
 
 
-        $query3="SELECT name, price, description, username FROM `produit` inner join vendeur where id_vendeur = vendeur.id  ";
+        $query3="SELECT produit.id, name, price, description, username FROM `produit` inner join vendeur where id_vendeur = vendeur.id  ";
         $result3= mysqli_query($con, $query3);
     ?>
     
@@ -39,7 +39,7 @@ include("auth.php");
     if(isset($_POST['search'])) {
     $search = $_POST['search'];
     $search = preg_replace("#[^0-9a-z]i#","", $search);
-    $query = "SELECT name, price, description, username FROM `produit` inner join vendeur where id_vendeur = vendeur.id and name LIKE '%$search%'";
+    $query = "SELECT produit.id, name, price, description, username FROM `produit` inner join vendeur where id_vendeur = vendeur.id and name LIKE '%$search%'";
     $result = mysqli_query($con, $query) or die ("Could not search");
     $count = mysqli_num_rows($result);
 
@@ -118,11 +118,9 @@ include("auth.php");
               <a href=''><img class='card-img-top' src='' alt=''></a>
               <div class='card-body'>
                 <h4 class='card-title'>
-                  <a href=''>".$row['name']."</a>
-              
+                  <a href='fiche_produit.php?name=".$row['id']."'>".$row['name']."</a>
                 </h4>
                 <h5>".$row['price']."".'€'."</h5>
-               
                 <p class='card-tex'>".$row['description']."</p>
                 <a href='' class='card-tex'>".$row['username']."</a>
               </div>

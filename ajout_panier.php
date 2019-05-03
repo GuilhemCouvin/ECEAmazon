@@ -1,5 +1,6 @@
 <?php
 //include auth.php file on all secure pages
+include('fiche_produit.php');
 include("auth.php");
 ?>
 <?php
@@ -12,8 +13,6 @@ include("auth.php");
 	$result= mysqli_query($con, $query) or die(mysqli_error($con));
 	$row=mysqli_fetch_array($result);
 	$id_acheteur=$row['id'];
-
-	
 
 
 	$query1="SELECT * FROM produit WHERE id='$id_produit'";
@@ -36,10 +35,5 @@ include("auth.php");
             
     $result2 = mysqli_query($con,$query2) or die(mysqli_error($con));
 
-    if($result2){
-    	echo("
-    		<h3>Produit ajouté au panier avec succès !</h3><br>
-    		<h4>Cliquez <a href='index.php'>ici</a> pour revenir à l'Accueil.</h4>
-    		");
-	}
+    echo'<script>alert("Article ajouté au panier avec succès !");</script>';
  ?>
