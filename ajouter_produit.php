@@ -36,6 +36,12 @@ include("auth.php");
       background-color: #f3576a;
       color: white;
     }
+    .footer{
+      position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
   </style>
 
 </head>
@@ -86,7 +92,7 @@ require('db.php');
 ?>
      <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.php">ECE Amazon</a>
+    <a class="navbar-brand" href="index_v.php">ECE Amazon</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -96,17 +102,21 @@ require('db.php');
         <li class="nav-item active">
           <a class="nav-link" href="index_v.php">Accueil <span class="sr-only">(current)</span></a>
         </li>
+      </ul>       
+    </div>
+     <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index_v.php"><?php echo($username)?></a>
+        </li>
       </ul>
-       
       <ul class="navbar-nav ml-auto">
-        
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Se déconnecter</a>
         </li>
       </ul>
-      </div>
+    </div>
   </nav>
-
+<br>
   <!-- Page Content -->
   <div class="container">
 
@@ -118,7 +128,7 @@ require('db.php');
 			<div class="row">
           <form>
 					<div class="container-fluid inner-section2">
-						<h2 class="font_white text-center">AJOUT PRODUIT</h2><br>
+						<h2 class="font_white text-center">AJOUTER PRODUIT</h2><br>
 
 						<div class="row">
 							<div class="col-sm-6 form-group">
@@ -164,29 +174,22 @@ require('db.php');
 
 							</div>
 						</div>
-
 						<div class="form-group">
 							<label>Description</label>
 							<textarea placeholder="Description du Produit" rows="3" name = "description" class="form-control" required></textarea>
 						</div>	
-                        
-                       
-
 						<div class="row">
-                     		<div class="col-sm-6 form-group">
+           		<div class="col-sm-6 form-group">
 								<label>Photo</label>
 								<input type="file"  placeholder="Photo" name = "photo">
-				    		</div>
-
-                    		
+				    	</div>   		
 						</div>	
-
 						<br>
-						<div class="footer text-center">
+						<div class=" text-center">
 							<button href="index_v.php" type="submit" class="btn btn-neutral btn-round">Ajouter</button>
 							<br><br>
-                        	<a href="index_v.php">Retour</a><br><br>
-                    	</div>
+              <a href="index_v.php">Retour</a><br><br>
+            </div>
 					</div>
 				</form>
               </div>
@@ -198,12 +201,13 @@ require('db.php');
       </div>
       <!-- /.col-lg-9 -->
     </div>
+    <br><br>
     <!-- /.row -->
   <!-- /.container -->
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
+  <footer class="py-3 bg-light footer">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright © 2018-2019 ECE Paris</p>
+      <p class="m-0 text-center text-black">Copyright © 2018-2019 ECE Paris</p>
     </div>
     <!-- /.container -->
   </footer>

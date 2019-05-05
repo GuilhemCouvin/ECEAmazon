@@ -33,6 +33,21 @@ if (isset($_REQUEST['username'])){
 	$couverture  = mysqli_real_escape_string($con,$couverture );
 	$trn_date = date("Y-m-d H:i:s");
     
+    $resultat=move_uploaded_file($_FILES['profil'], "img/membres");
+    
+	if(isset($_FILES['profil']) AND !empty($_FILES['profil']['name'])){
+		echo("<script>alert('Premier if !');</script>");
+		$tailleMax=2097152;
+		$extensionsValides=array('jpg','jpeg','pnj','gif');
+		if($_FILES['profil']['size']<=$tailleMax)
+		{
+			$resultat=move_uploaded_file($_FILES['profil'], "img/membres");
+
+		}else{
+			echo("<script>alert('Taille de fichier invalide !');</script>");
+		}
+	}
+
     $query2="SELECT username FROM acheteur where username = '$username' ";
     $result2 = mysqli_query($con, $query2);
     $row2 = $result2->fetch_assoc();
@@ -65,7 +80,7 @@ if (isset($_REQUEST['username'])){
 	    <h2 align = "center">Inscription sur ECE Amazon</h2>
 		<div class="inner-section2">
 			<div class="row">
-				<form>
+				<form enctype="multipart/form-data">
 					<div class="container-fluid inner-section2">
 						<h2 class="font_white text-center">INSCRIPTION ACHETEUR</h2><br>
 

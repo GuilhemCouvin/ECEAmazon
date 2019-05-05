@@ -196,12 +196,22 @@ CREATE TABLE IF NOT EXISTS `cb` (
 INSERT INTO `cb` (`numero`, `mois`, `annee`, `codeS`) VALUES
 ('abeac07d3c28c1bef9e730002c753ed4', 'c20ad4d76fe97759aa27a0c99bff6710', '7b7a53e239400a13bd6be6c91c4f6c4e', '202cb962ac59075b964b07152d234b70');
 
+INSERT INTO `cb` (`numero`, `mois`, `annee`, `codeS`) VALUES
+('9d299b6a4b2b1cdcf8bc4e7dd7e050fb', '96a3be3cf272e017046d1b2674a52bd3', '7b7a53e239400a13bd6be6c91c4f6c4e', 'caf1a3dfb505ffed0d024130f58c5cfa');
 
 
+INSERT INTO `admin` (`id`, `username`, `email`, `password`, `nom`, `prenom`, `profil`, `couverture`, `trn_date`) 
+VALUES (1,'adminGC','admin1@gmail.com','81dc9bdb52d04dc20036dbd8313ed055','Couvin','Guilhem','','','2019-04-29 12:07:52');
+
+INSERT INTO `admin` (`id`, `username`, `email`, `password`, `nom`, `prenom`, `profil`, `couverture`, `trn_date`) 
+VALUES (2,'adminAD','admin2@gmail.com','81dc9bdb52d04dc20036dbd8313ed055','Daubignard','Adrien','','','2019-04-29 12:07:52');
 
 
 INSERT INTO `acheteur` (`id`, `username`, `email`, `password`, `nom`, `prenom`, `adresse`, `profil`, `couverture`, `trn_date`) VALUES
-(1, 'GuilhemC', 'guilhemc75@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'Couvin', 'Guilhem', '361 RUE DE VAUGIRARD', '', '', '2019-04-29 12:07:52');
+(1, 'GuilhemC', 'guilhemc75@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'Couvin', 'Guilhem', '37 quai de Grenelle 75015 Paris', '', '', '2019-04-29 12:07:52');
+
+INSERT INTO `acheteur` (`id`, `username`, `email`, `password`, `nom`, `prenom`, `adresse`, `profil`, `couverture`, `trn_date`) VALUES
+(2, 'AdrienD', 'adrien.daubignard@edu.ece.fr', '81dc9bdb52d04dc20036dbd8313ed055', 'Daubignard', 'Adrien', '37 quai de Grenelle 75015 Paris', '', '', '2019-04-29 12:07:52');
 
 
 
@@ -223,22 +233,28 @@ INSERT INTO `produit` (`id`, `name`, `price`, `id_vendeur`, `categorie`, `taille
 (1, 'Tshirt rouge', '24,99', '1', 'Vetements','S', 'tshirt 100% coton made in Népal', 'Femme', 'rouge.jpg', '2019-04-29 12:07:52');
 
 INSERT INTO `produit` (`id`, `name`, `price`, `id_vendeur`, `categorie`, `taille`, `description`, `genre`, `photo`,`trn_date`) VALUES
-(2, 'Game of Thrones Tome 1', '9,99', '2', 'Livres','', 'Livre Game of Trones Tome 1 format Poche', '', 'got1.jpg', '2019-04-29 12:07:52');
+(2, 'Game of Thrones Tome 1', '9,99', '2', 'Livres','ND', 'Livre Game of Trones Tome 1 format Poche', 'ND', 'got1.jpg', '2019-04-29 12:07:52');
 
 INSERT INTO `produit` (`id`, `name`, `price`, `id_vendeur`, `categorie`, `taille`, `description`, `genre`, `photo`,`trn_date`) VALUES
-(3, 'Game of Thrones Tome 2', '9,99', '2', 'Livres','', 'Livre Game of Trones Tome 2 format Poche', '', 'got2.jpg', '2019-04-29 12:07:52');
+(3, 'Game of Thrones Tome 2', '9,99', '2', 'Livres','ND', 'Livre Game of Trones Tome 2 format Poche', 'ND', 'got2.jpg', '2019-04-29 12:07:52');
 
 INSERT INTO `produit` (`id`, `name`, `price`, `id_vendeur`, `categorie`, `taille`, `description`, `genre`, `photo`,`trn_date`) VALUES
-(4, 'Ballon de foot', '4,99', '3', 'Sports&Loisirs','', 'Ballon de foot rouge en cuir', '', 'ballon.jpg', '2019-04-29 12:07:52');
+(4, 'Ballon de foot', '4,99', '3', 'Sports&Loisirs','ND', 'Ballon de foot rouge en cuir', 'ND', 'ballon.jpg', '2019-04-29 12:07:52');
 
 INSERT INTO `produit` (`id`, `name`, `price`, `id_vendeur`, `categorie`, `taille`, `description`, `genre`, `photo`,`trn_date`) VALUES
-(5, 'Balles de Tennis', '2,99', '3', 'Sports&Loisirs','', 'Balles de Tennis', '', 'balles.jpg', '2019-04-29 12:07:52');
+(5, 'Balles de Tennis', '2,99', '3', 'Sports&Loisirs','ND', 'Balles de Tennis', 'ND', 'balles.jpg', '2019-04-29 12:07:52');
 
 INSERT INTO `produit` (`id`, `name`, `price`, `id_vendeur`, `categorie`, `taille`, `description`, `genre`, `photo`,`trn_date`) VALUES
-(6, 'Album Daft Punk - Discovery', '7,99', '2', 'Musique','', 'Album de musique électronique Daft Punk', '', 'disco.jpg', '2019-04-29 12:07:52');
+(6, 'Album Daft Punk - Discovery', '7,99', '2', 'Musique','ND', 'Album de musique électronique Daft Punk', 'ND', 'disco.jpg', '2019-04-29 12:07:52');
 
 INSERT INTO `produit` (`id`, `name`, `price`, `id_vendeur`, `categorie`, `taille`, `description`, `genre`, `photo`,`trn_date`) VALUES
-(7, 'Album PNL - Deux Frères', '7,99', '2', 'Musique','', 'Album musique Hip-Hop', '', 'pnl.jpg', '2019-04-29 12:07:52');
+(7, 'Album PNL - Deux Frères', '7,99', '2', 'Musique','ND', 'Album musique Hip-Hop', 'ND', 'pnl.jpg', '2019-04-29 12:07:52');
+
+INSERT INTO `produit` (`id`, `name`, `price`, `id_vendeur`, `categorie`, `taille`, `description`, `genre`, `photo`,`trn_date`) VALUES
+(9, 'Drone - Parrot - BEBOP2', '335', '2', 'Sports&Loisirs','ND', 'Parrot - Drone Quadricoptère Bebop 2 - Camera HD', 'ND', 'drone.jpg', '2019-04-29 12:07:52');
+
+INSERT INTO `produit` (`id`, `name`, `price`, `id_vendeur`, `categorie`, `taille`, `description`, `genre`, `photo`,`trn_date`) VALUES
+(10, 'Enceinte - JBL - Flip4', '140', '2', 'Musique','ND', 'Enceinte Bluetooth JBL FLIP4', 'ND', 'enceinte.jpg', '2019-04-29 12:07:52');
 COMMIT;
 
 

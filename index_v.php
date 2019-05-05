@@ -35,6 +35,12 @@ include("auth.php");
       background-color: #f3576a;
       color: white;
     }
+    .footer{
+      position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
   </style>
 
 </head>
@@ -58,7 +64,7 @@ include("auth.php");
     
  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.php">ECE Amazon</a>
+    <a class="navbar-brand" href="index_v.php">ECE Amazon</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -68,31 +74,32 @@ include("auth.php");
         <li class="nav-item active">
           <a class="nav-link" href="index_v.php">Accueil <span class="sr-only">(current)</span></a>
         </li>
+      </ul>       
+    </div>
+     <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index_v.php"><?php echo($username)?></a>
+        </li>
       </ul>
-       
       <ul class="navbar-nav ml-auto">
-        
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Se déconnecter</a>
         </li>
       </ul>
-      </div>
+    </div>
   </nav>
-
+<br>
   <!-- Page Content -->
   <div class="container">
-
+    <h3 align="center">PRODUITS EN VENTE</h3>
+    <br>
     <div class="row">
 
       <div class="col-lg-3">
 
         
         <div class="list-group">
-            <h3>  
-                   
-                     
-                    
-            </h3>
+          <a href="index_v.php" class="list-group-item">Voir les produits en vente</a>
           <a href="ajouter_produit.php" class="list-group-item">Ajouter Produit</a>
           <a href="supprimer_produit.php" class="list-group-item">Supprimer Produit</a>
           <a href="stats.php"` class="list-group-item">Voir Stats</a>
@@ -134,12 +141,13 @@ include("auth.php");
       </div>
       <!-- /.col-lg-9 -->
     </div>
+    <br>
     <!-- /.row -->
   <!-- /.container -->
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
+  <footer class="py-3 bg-light footer">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright © 2018-2019 ECE Paris</p>
+      <p class="m-0 text-center text-black">Copyright © 2018-2019 ECE Paris</p>
     </div>
     <!-- /.container -->
   </footer>

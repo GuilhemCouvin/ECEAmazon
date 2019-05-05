@@ -20,6 +20,59 @@ include("auth.php");
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+  <style type="text/css">
+    .account-style{
+        justify-content: center;
+        background-image: url(img/ECE.jpg);
+        background-size:cover;
+        background-position: center center;
+    }
+    .Firsttitle{
+      background-color: rgba(255,255,255,.9);
+      border-radius: 8px;
+    }
+    .command2{
+      background-color: rgba(255,255,255,.9);
+      border-radius: 8px;
+    }
+    .command3{
+      background-color: rgba(0,0,0,.1);
+      border-radius: 8px;
+    }
+    .command2 h3{
+      color: #007179;
+      font-weight: bold;
+        text-transform: uppercase;
+    }
+    .command3 h3{
+      color: #007179;
+      font-weight: bold;
+        text-transform: uppercase;
+    }
+    .btn-lg {
+      font-size: 1em;
+      border-radius: 0.25rem;
+      padding: 15px 48px;
+    }
+    
+    .btn-round {
+      border-width: 1px;
+      border-radius: 30px !important;
+      padding: 11px 23px;
+    }
+    
+    .btn-neutral,.btn-neutral:focus,.btn-neutral:hover {
+      background-color: #f3576a;
+      color: white;
+    }
+    .footer{
+      position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -62,11 +115,14 @@ include("auth.php");
       </ul>
       <form action="recherche.php" class="form-inline my-2 my-lg-0" method="post">
         <input name="search" type="text" class="form-control mr-sm-2" placeholder="Rechercher..."/>
-        <input class="btn btn-secondary my-2 my-sm-0" type="submit" value="Rechercher"/>
+        <input class="btn btn-neutral my-2 my-sm-0" type="submit" value="Rechercher"/>
       </form>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <a class="nav-link" href="panier.php">Panier</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="espace_utilisateur.php">Mon Compte</a>
           </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Se déconnecter</a>
@@ -76,22 +132,25 @@ include("auth.php");
   </nav>
 
   <!-- Page Content -->
-  <div class="container">
+  <div class="container-fluid account-style">
+    <br>
       <div class="container-fluid command2">
-					<br>
-					<h3 align="center">Somme Panier</h3>
-					<h4>Prix : <?php echo($somme)?>€</h4>
-					<div class="footer text-center">
-                    	<?php 
-                    		echo("
-                          
-                    			<a class='btn btn-neutral btn-round' href='payement.php'>Payer</a>"
-                    		);
-                    	?>
-                    	<br><br>
-                	</div>
-				</div>
-
+				<br>
+				<h3 align="center">Somme Panier</h3>
+				<h4>Total à payer : <?php echo($somme)?>€</h4>
+        <br>
+				<div class=" text-center">
+          <?php 
+          	echo("
+          	<a class='btn btn-neutral btn-round' href='payement.php'>Passer à la commande</a>"
+          	);
+          ?>
+          <br><br>
+        </div>
+			</div>
+      <br>
+    </div>
+    <br>
     <div class="row">
         <div class='col-lg-9'>
          <div class='row'> 
@@ -108,12 +167,9 @@ include("auth.php");
                   <a href=''>".$row2['name']."</a>
                 </h4>
                 <h5>".$row2['price']."".'€'."</h5>
-               
                 <p class='card-tex'>".$row2['description']."</p>
                 <a href='' class='card-tex'>".$row2['username']."</a>
-                <form action='supppanier.php?idprod='".$row2['id_produit']."' method='post' autocomplete='off'>
-                        <input name ='demande' type='submit' class='btn btn-sm btn-danger' value='Supprimer'/>  
-                </form>
+                <a href='supppanier.php?name=".$row2['id_produit']."' class='btn btn-sm btn-danger'>Supprimer</a>
               </div>
             </div>
           </div> 
@@ -127,12 +183,13 @@ include("auth.php");
       </div>
       <!-- /.col-lg-9 -->
     </div>
+
     <!-- /.row -->
   <!-- /.container -->
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
+  <footer class="py-3 bg-light footer">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright © 2018-2019 ECE Paris</p>
+      <p class="m-0 text-center text-black">Copyright © 2018-2019 ECE Paris</p>
     </div>
     <!-- /.container -->
   </footer>

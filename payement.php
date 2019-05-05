@@ -40,10 +40,11 @@ include("auth.php");
   <?php
    require('db.php');
     $username= $_SESSION['username'];
-    $query2="SELECT id from acheteur where '$username' = username";
+    $query2="SELECT id,email from acheteur where '$username' = username";
     $result2=mysqli_query($con,$query2);
     $row2 = mysqli_fetch_array($result2);
     $id_acheteur = $row2['id'];
+    $mail_acheteur = $row['email'];
 
    if (isset($_REQUEST['numero'])){
       $numero = stripslashes($_REQUEST['numero']);
@@ -66,24 +67,36 @@ include("auth.php");
       if($row==1){
           echo("<script>alert('Merci pour votre achat !');</script>");
 
-          $query6="SELECT id_produit FROM panier WHERE id_acheteur=$id_acheteur";
+          $query6="SELECT * FROM panier WHERE id_acheteur=$id_acheteur";
           $result6=mysqli_query($con,$query6) or die(mysqli_error($con));
           while($row6 = $result6->fetch_array())
           {
-                     $query3="DELETE FROM produit WHERE id='".$row6['id_produit']."'";
-                      $result3=mysqli_query($con,$query3);
+              $id_prod=$row6['id_produit'];
+              $name =$row6['name'];
+              $price =$row6['price'];
+              $id_vendeur =$row6['id_vendeur'];
+              $categorie =$row6['categorie'];
+              $taille =$row6['taille'];
+              $description =$row6['description'];
+              $genre =$row6['genre'];
+              $photo =$row6['photo'];
+              $trn_date =$row6['trn_date'];
+
+              $query4 = "INSERT into produit_vendu (id, name, price, id_vendeur , id_acheteur, categorie, taille, description, genre, photo, trn_date)
+            VALUES ('$id_prod', '$name','$price','$id_vendeur','$id_acheteur','$categorie','$taille','$description','$genre','$photo','$trn_date')";
+
+              $result2 = mysqli_query($con,$query4) or die(mysqli_error($con));
+
+              $query3="DELETE FROM produit WHERE id='$id_prod'";
+              $result3=mysqli_query($con,$query3);
+
+              $query4="DELETE FROM panier WHERE id_produit='$id_prod'";
+              $result4=mysqli_query($con,$query4);
           }
  
           $query1="DELETE FROM panier WHERE id_acheteur='$id_acheteur'";
           $result = mysqli_query($con,$query1) or die(mysqli_error($con));
 
-
-
-
-
-
-          echo $query6;
-          echo $query3;
         
 
           echo("<div align='center'>Pour retourner au menu principal cliquez <a href='index.php'>ici</a></div>");
@@ -102,7 +115,7 @@ include("auth.php");
       <div class="span12">
         <form class="form-horizontal span6">
           <fieldset>
-            <legend>Payement</legend>
+            <legend>Paiement</legend>
             <div class="control-group">
               <label class="control-label">Numero de Carte de Crédit</label>
               <div class="controls">
@@ -115,11 +128,11 @@ include("auth.php");
               <div class="controls">
                   <div class="row-fluid">
                   <div class="span3">
-                  <input type="text" class="input-block-level" autocomplete="off" maxlength="2" pattern="\d{2}" title="mois" name="mois" required>
+                  Mois:<br><input type="text" class="input-block-level" autocomplete="off" maxlength="2" pattern="\d{2}" title="mois" name="mois" required>
 
                   </div>
                     <div class="span3">
-                   <input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" title="annee" name="annee"required>
+                   Année:<br><input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" title="annee" name="annee"required>
 
                     </div>
                   </div>

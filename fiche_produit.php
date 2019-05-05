@@ -61,6 +61,12 @@ include("auth.php");
 		  background-color: #f3576a;
 		  color: white;
 		}
+		.footer{
+      position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
 	</style>
 </head>
 <body>
@@ -94,12 +100,15 @@ include("auth.php");
 			</ul>
 			<form action="recherche.php" class="form-inline my-2 my-lg-0" method="post">
         <input name="search" type="text" class="form-control mr-sm-2" placeholder="Rechercher..."/>
-        <input class="btn btn-secondary my-2 my-sm-0" type="submit" value="Rechercher"/>
+        <input class="btn btn-neutral my-2 my-sm-0" type="submit" value="Rechercher"/>
       </form>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
 			    	<a class="nav-link" href="panier.php">Panier</a>
 			  	</li>
+			  	<li class="nav-item">
+            		<a class="nav-link" href="espace_utilisateur.php">Mon Compte</a>
+          		</li>
 				<li class="nav-item">
 					<a class="nav-link" href="logout.php">Se déconnecter</a>
 				</li>
@@ -128,19 +137,21 @@ include("auth.php");
 					<br>
 					<h3 align="center">Commander</h3>
 					<h4>Prix : <?php echo($row['price'])?>€</h4>
-					<div class="footer text-center">
+					<h4>Taille : <?php echo($row['taille'])?></h4>
+					<h4>Genre : <?php echo($row['genre'])?>	</h4>
+					<div class=" text-center">
                     	<?php 
                     		echo("
                     			<form action='ajout_panier.php?name=".$_GET['name']."' method='post' autocomplete='off'>
                     			<br>
                         		<input name ='demande' type='submit' class='btn btn-neutral btn-round' value='Ajouter au panier'/>  
-                        		</form>
-"
+                        		</form>"
                     		);
                     	?>
                     	<br><br>
                 	</div>
 				</div>
+				<br>
 			</div>
 		</div>
 	</div>
@@ -155,7 +166,7 @@ include("auth.php");
 			</div>
 		</div>
 		<br><br>
-	<footer class="py-5 bg-light">
+	<footer class="py-3 bg-light footer">
     	<div class="container">
     	  <p class="m-0 text-center text-black">Copyright © 2018-2019 ECE Paris</p>
     	</div>

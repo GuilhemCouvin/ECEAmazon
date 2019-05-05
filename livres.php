@@ -34,6 +34,19 @@ include("auth.php");
     .btn-neutral,.btn-neutral:focus,.btn-neutral:hover {
       background-color: #f3576a;
       color: white;
+    }
+    .footer{
+      position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+    .footer{
+      position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
   </style>
 </head>
 
@@ -44,7 +57,7 @@ include("auth.php");
         $username= $_SESSION['username'];
 
 
-        $query3="SELECT name, price, id_vendeur, description FROM `produit` where categorie='Livres' ";
+        $query3="SELECT id,name, price, id_vendeur, description FROM `produit` where categorie='Livres' ";
         $result3= mysqli_query($con, $query3);
     ?>
     
@@ -69,13 +82,16 @@ include("auth.php");
         <li class="nav-item">
             <a class="nav-link" href="panier.php">Panier</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="espace_utilisateur.php">Mon Compte</a>
+          </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Se déconnecter</a>
         </li>
       </ul>
       </div>
   </nav> 
-
+<br>
   <!-- Page Content -->
   <div class="container">
 
@@ -115,7 +131,7 @@ include("auth.php");
               <a href=''><img class='card-img-top' src='' alt=''></a>
               <div class='card-body'>
                 <h4 class='card-title'>
-                  <a href=''>".$row2['name']."</a>
+                  <a href='fiche_produit.php?name=".$row2['id']."'>".$row2['name']."</a>
               
                 </h4>
                 <h5>".$row2['price']."".'€'."</h5>
@@ -135,15 +151,6 @@ include("auth.php");
           
             </div>
         </div>
-        
-          
-
-        
-     
-
-      
-
-        
 
       </div>
       <!-- /.col-lg-9 -->
@@ -155,9 +162,9 @@ include("auth.php");
   <!-- /.container -->
 
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
+  <footer class="py-3 bg-light footer">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright © 2018-2019 ECE Paris</p>
+      <p class="m-0 text-center text-black">Copyright © 2018-2019 ECE Paris</p>
     </div>
     <!-- /.container -->
   </footer>

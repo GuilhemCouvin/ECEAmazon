@@ -59,9 +59,10 @@
                 //Redirect user to index.php
                     header("Location: index.php");
                 }
-                else
+                else 
                 {
-                    echo("vous etes admin");
+                    $_SESSION['username'] = $username;
+                    header("Location: admin.php");
                 }
           
              }else{

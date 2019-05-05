@@ -18,7 +18,30 @@ include("auth.php");
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+  <style type="text/css">
+    .btn-lg {
+      font-size: 1em;
+      border-radius: 0.25rem;
+      padding: 15px 48px;
+    }
+    
+    .btn-round {
+      border-width: 1px;
+      border-radius: 30px !important;
+      padding: 11px 23px;
+    }
+    
+    .btn-neutral,.btn-neutral:focus,.btn-neutral:hover {
+      background-color: #f3576a;
+      color: white;
+    }
+    .footer{
+      position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+  </style>
 </head>
 
 <body>
@@ -65,11 +88,14 @@ include("auth.php");
       </ul>
       <form action="recherche.php" class="form-inline my-2 my-lg-0" method="post">
         <input name="search" type="text" class="form-control mr-sm-2" placeholder="Rechercher..."/>
-        <input class="btn btn-secondary my-2 my-sm-0" type="submit" value="Rechercher"/>
+        <input class="btn btn-neutral my-2 my-sm-0" type="submit" value="Rechercher"/>
       </form>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <a class="nav-link" href="panier.php">Panier</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="espace_utilisateur.php">Mon Compte</a>
           </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Se déconnecter</a>
@@ -77,7 +103,7 @@ include("auth.php");
       </ul>
       </div>
   </nav>
-
+<br>
   <!-- Page Content -->
   <div class="container">
 
@@ -143,9 +169,9 @@ include("auth.php");
     <!-- /.row -->
   <!-- /.container -->
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
+  <footer class="py-3 bg-light footer">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright © 2018-2019 ECE Paris</p>
+      <p class="m-0 text-center text-black">Copyright © 2018-2019 ECE Paris</p>
     </div>
     <!-- /.container -->
   </footer>
